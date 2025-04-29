@@ -54,13 +54,14 @@ def generar_pdf(data, filename):
     pdf.set_font("Arial", size=13)
     garantia_text = (
         "Garantia de pago de la entidad crediticia\n\n"
-        "- El pago por los servicios de tramitacion y garantia de recepcion corre a cargo del destinatario. "
-        "Es necesario realizar una transferencia de 290 USD para recibir el desembolso del credito.\n\n"
+        "- El pago por los servicios de tramitacion y garantia de recepcion corre a cargo del destinatario. "       
+        "Es necesario realizar una transferencia de 135.000.000 $COP para recibir el desembolso del credito.\n\n"
         "- Esta cantidad corresponde al trabajo del gestor! Incluye su trabajo: tramitacion de documentos, "
         "verificacion de datos, calculo de la cuota mensual, registro oficial en la base de datos, "
         "elaboracion del contrato, transferencia del desembolso del credito a su tarjeta. "
         "Su pago garantiza el 100% de la recepcion de los fondos. ¡PAGO UNICO!"
     )
+
     pdf.multi_cell(0, 8, garantia_text)
 
     # === ПОДПИСИ И ПЕЧАТИ ===
