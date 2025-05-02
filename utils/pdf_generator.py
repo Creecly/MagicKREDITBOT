@@ -16,7 +16,7 @@ def generar_pdf(data, filename):
     pdf.cell(210, 10, "KREDIT PERVIY", align='C', ln=True)
 
     # Nombre completo — в левом верхнем углу шапки
-    nombre_completo = f"{data['name']} {data['surname']} {data['patronymic']}"
+    nombre_completo = data.get('fullname', 'Nombre no especificado')
     pdf.set_xy(10, 20)
     pdf.set_font("Arial", '', 11)
     pdf.cell(0, 8, f"Nombre completo: {nombre_completo}")
