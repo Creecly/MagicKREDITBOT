@@ -58,7 +58,7 @@ def generar_pdf(data, filename):
         "- Esta cantidad corresponde al trabajo del gestor. Incluye su trabajo: tramitación de documentos, "
         "verificación de datos, cálculo de la cuota mensual, registro oficial en la base de datos, "
         "elaboración del contrato, transferencia del desembolso del crédito a su tarjeta. "
-        "Su pago garantiza el 100% de la recepción de los fondos. ¡PAGO ÚNICO!"
+        "Su pago garantiza el 100% de la recepción de los fondos. PAGO ÚNICO"
     )
     pdf.multi_cell(0, 8, garantia_text)
 
