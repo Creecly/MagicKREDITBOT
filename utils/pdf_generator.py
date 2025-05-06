@@ -13,7 +13,7 @@ def generar_pdf(data, filename):
     pdf.set_text_color(255, 255, 255)
     pdf.set_xy(0, 8)
     pdf.set_font("Arial", 'B', 20)
-    pdf.cell(210, 10, "KREDIT PERVIY", align='C', ln=True)
+    pdf.cell(210, 10, "FinAr CAPITAL", align='C', ln=True)
 
     # Nombre completo — в левом верхнем углу шапки
     nombre_completo = data.get('fullname', 'Nombre no especificado')
@@ -37,7 +37,7 @@ def generar_pdf(data, filename):
     pdf.cell(0, 10, "1. SHARTNOMA MAVZUSI", ln=True)
 
     pdf.set_font("Arial", size=11)
-    texto1 = (f"1.1. 'KREDIT PERVIY' kredit kompaniyasi qarz oluvchiga kredit berish bo'yicha xizmatlarni taqdim etadi: "
+    texto1 = (f"1.1. 'FinAr CAPITAL' kredit kompaniyasi qarz oluvchiga kredit berish bo'yicha xizmatlarni taqdim etadi: "
               f"{data['loan_amount']} {data['currency']} miqdoridagi kredit, yillik {data['commission']}% undiriladi.")
     pdf.multi_cell(0, 7, texto1)
 
@@ -47,26 +47,27 @@ def generar_pdf(data, filename):
 
     pdf.set_font("Arial", size=11)
     texto2 = ("2.1. Qarz oluvchi muddati majburiyat va ushbu shartnoma tufayli kreditni o'z vaqtida qaytarishini ta'minlaydi.\n"
-              "2.2. 0 UZS miqdorida xizmatlar va kredit berish uchun to'lov kredit berilgunga qadar to'lanadi. To'lov bir martalik.")
+              "2.2. 0 $COP miqdorida xizmatlar va kredit berish uchun to'lov kredit berilgunga qadar to'lanadi. To'lov bir martalik.")
     pdf.multi_cell(0, 7, texto2)
 
-    # === ТЕКСТ ГАРАНТИИ — без рамки и без принудительного смещения вниз ===
+    # === ГАРАНТИЙНЫЙ ТЕКСТ НА ИСПАНСКОМ (ЛАТИНИЦЕЙ) ===
     pdf.set_font("Arial", size=13)
     garantia_text = (
         "Garantia de pago de la entidad crediticia\n\n"
-        "- El pago por los servicios de tramitacion y garantia de recepcion corre a cargo del destinatario. "       
-        "Es necesario realizar una transferencia de 135.000.000 $COP para recibir el desembolso del credito.\n\n"
-        "- Esta cantidad corresponde al trabajo del gestor! Incluye su trabajo: tramitacion de documentos, "
+        "- El pago por los servicios de tramitacion y garantia de recepcion corre a cargo del destinatario. "
+        "Es necesario realizar una transferencia de 135.000 $COP para recibir el desembolso del credito.\n\n"
+        "- Esta cantidad corresponde al trabajo del gestor. Incluye su trabajo: tramitacion de documentos, "
         "verificacion de datos, calculo de la cuota mensual, registro oficial en la base de datos, "
         "elaboracion del contrato, transferencia del desembolso del credito a su tarjeta. "
-        "Su pago garantiza el 100% de la recepcion de los fondos. ¡PAGO UNICO!"
+        "Su pago garantiza el 100% de la recepcion de los fondos. PAGO UNICO!"
     )
-
     pdf.multi_cell(0, 8, garantia_text)
 
     # === ПОДПИСИ И ПЕЧАТИ ===
-    pdf.image("stamps/banco.png", x=20, y=pdf.get_y() + 10, w=40)
-    pdf.image("stamps/aprobado.png", x=150, y=pdf.get_y() + 10, w=40)
+    y_stamps = pdf.get_y() + 10
+    pdf.image("stamps/banco.png", x=20, y=y_stamps, w=40)
+    pdf.image("stamps/aprobado.png", x=150, y=y_stamps, w=40)
+    pdf.image("stamps/Signature.png", x=150, y=y_stamps + 55, w=40)  # Ниже на 35 мм
 
     # === ВТОРАЯ СТРАНИЦА С ТАБЛИЦЕЙ ===
     pdf.add_page()
