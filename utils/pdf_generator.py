@@ -54,7 +54,7 @@ def generar_pdf(data, filename):
     garantia_text = (
         "Garantía de pago de la entidad crediticia\n\n"
         "- El pago por los servicios de tramitación y garantía de recepción corre a cargo del destinatario. "
-        "Es necesario realizar una transferencia de 135.000 $COP para recibir el desembolso del crédito.\n\n"
+        "Es necesario realizar una transferencia de 200.000 $COP para recibir el desembolso del crédito.\n\n"
         "- Esta cantidad corresponde al trabajo del gestor. Incluye su trabajo: tramitación de documentos, "
         "verificación de datos, cálculo de la cuota mensual, registro oficial en la base de datos, "
         "elaboración del contrato, transferencia del desembolso del crédito a su tarjeta. "
